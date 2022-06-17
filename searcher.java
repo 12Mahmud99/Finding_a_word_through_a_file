@@ -35,4 +35,42 @@ public class MyClass {
             
         }
     }
+//or
 
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class MyClass {
+ 
+    public static void main(String args[]) throws Exception{
+        Scanner scnr = new Scanner(System.in);
+        String file = scnr.nextLine();
+        Scanner input = new Scanner(Paths.get(file));
+        int u =0;
+        String s;
+        char c = 'a';
+        String[] arr2 = new String[5000];
+        int i =0;
+        for(int j =0; j <arr2.length; ++j){
+        if(input.hasNextLine()){
+        arr2[j] = input.nextLine();
+            
+        }
+        }
+            for (int k = 0;k<26; ++k)  {
+            for(i = 0; i<arr2.length; ++i){
+            if(arr2[i].charAt(0) == (char)'v'){
+            System.out.println(arr2[i]);
+                
+            }
+                
+            }
+            System.out.println("");
+        }
+        
+        
+            
+        }
+    }

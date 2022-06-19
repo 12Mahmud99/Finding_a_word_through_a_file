@@ -1,13 +1,20 @@
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.*;
+import javax.swing.event.*;
 
-
-public class MyClass {
+public class MyClass extends JFrame{
+    public MyClass(){
+        JFrame frame = new JFrame();
+        frame.setBounds(200,200);
+    }
  
     public static void main(String args[]) throws Exception{
         Scanner scnr = new Scanner(System.in);
+        System.out.println("Type in the file's name:");
         String file = scnr.nextLine();
+        System.out.println(file);
         Scanner input = new Scanner(Paths.get(file));
         int u =0;
         String s;
@@ -15,62 +22,26 @@ public class MyClass {
             s= input.nextLine();
             ++u;
         }
-        System.out.print(u);
-        char c = scnr.nextLine().charAt(0);
-        String[] arr2 = new String[u];
+        System.out.println("Number of lines in the choosen file are: ");
+        System.out.println(u);
+        System.out.println("Type in the the character that the words you're searching for start with:");
+        String c = scnr.nextLine().substring(0,1);
+        System.out.println(c);
+        
+        String[] arr = new String[u];
         int i =0;
-        for(int j =0; j <arr2.length; ++j){
-        if(input.hasNextLine()){
-        arr2[j] = input.nextLine();
+        Scanner input2 = new Scanner(Paths.get(file));
+        for(int j =0; j <arr.length; ++j){
+        if(input2.hasNextLine()){
+        arr[j] = input2.nextLine();
             
-        }
-        }
-        for
-        (i = 0; i<arr2.length; ++i){
-            if(arr2[i].charAt(0) == c)
-            System.out.println(arr2[i]);
         }
         
-        
-            
         }
-    }
-//or
-
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-
-public class MyClass {
- 
-    public static void main(String args[]) throws Exception{
-        Scanner scnr = new Scanner(System.in);
-        String file = scnr.nextLine();
-        Scanner input = new Scanner(Paths.get(file));
-        int u =0;
-        String s;
-        char c = 'a';
-        String[] arr2 = new String[5000];
-        int i =0;
-        for(int j =0; j <arr2.length; ++j){
-        if(input.hasNextLine()){
-        arr2[j] = input.nextLine();
-            
-        }
-        }
-            for (int k = 0;k<26; ++k)  {
-            for(i = 0; i<arr2.length; ++i){
-            if(arr2[i].charAt(0) == (char)'v'){
-            System.out.println(arr2[i]);
-                
+        for(i = 0; i <arr.length; ++i){
+            if(arr[i].substring(0,1).equalsIgnoreCase(c)){
+            System.out.println(arr[i]);
             }
-                
-            }
-            System.out.println("");
         }
-        
-        
-            
         }
     }
